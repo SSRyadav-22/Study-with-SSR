@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c2526;
+    color: #e0e0e0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color: #2e3839;
+    border-bottom: 2px solid #4a5e5f;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #00adb5;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: #b0bec5;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    flex: 1;
+}
+
+.card {
+    background-color: #2e3839;
+    border-radius: 10px;
+    width: 300px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s, z-index 0.3s;
+    position: relative;
+    z-index: 1; /* Default z-index for cards */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    z-index: 10; /* Increase z-index on hover to bring card and its subheadings forward */
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    color: #00adb5;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.subheadings {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #3b4b4c;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 20; /* High z-index for subheadings to appear above other cards */
+}
+
+.card:hover .subheadings {
+    display: block;
+}
+
+.subheadings a {
+    display: block;
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.subheadings a:hover {
+    color: #00adb5;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #2e3839;
+    border-top: 2px solid #4a5e5f;
+    color: #b0bec5;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .subheadings {
+        position: static;
+        display: none;
+        margin-top: 1rem;
+        z-index: 1; /* Reset z-index for mobile since subheadings are static */
+    }
+
+    .card:hover .subheadings {
+        display: block;
+    }
+}
